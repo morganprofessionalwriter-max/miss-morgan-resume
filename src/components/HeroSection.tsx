@@ -40,7 +40,7 @@ const HeroSection = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-primary-foreground/30 text-white px-8 py-6 text-base rounded-full hover:bg-primary-foreground/10"
+              className="border-2 border-gold text-gold px-8 py-6 text-base rounded-full hover:bg-gold/10 font-semibold"
               onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })}
             >
               See My Work
