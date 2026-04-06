@@ -30,8 +30,8 @@ const ContactSection = () => {
 
             <div className="space-y-4">
               {[
-                { icon: Mail, text: "hello@resumepro.com" },
-                { icon: Phone, text: "(555) 123-4567" },
+                { icon: Mail, text: "morgan.professionalwriter@gmail.com" },
+                { icon: Phone, text: "+1 (672) 702-3922" },
                 { icon: MapPin, text: "Available worldwide — remote consultations" },
               ].map((item) => (
                 <div key={item.text} className="flex items-center gap-3">

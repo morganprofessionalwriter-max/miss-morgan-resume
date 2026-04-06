@@ -103,7 +103,7 @@ const PricingSection = () => {
                 className={`w-full py-6 rounded-full font-body font-semibold text-base ${
                   plan.popular
                     ? "bg-gradient-gold text-secondary hover:opacity-90"
-                    : "bg-secondary text-secondary-foreground hover:bg-secondary/90"
+                    : "bg-secondary text-white hover:bg-secondary/90"
                 }`}
                 onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               >
