@@ -3,7 +3,7 @@ const Footer = () => (
     <div className="container">
       <div className="flex flex-col md:flex-row items-center justify-between gap-6">
         <a href="#" className="font-heading text-xl font-bold text-primary-foreground">
-          Resume<span className="text-gradient-gold">Pro</span>
+          Miss <span className="text-gradient-gold">Morgan</span>
         </a>
         <div className="flex gap-6">
           {["Portfolio", "Pricing", "Contact"].map((link) => (
@@ -13,7 +13,7 @@ const Footer = () => (
           ))}
         </div>
         <p className="text-primary-foreground/40 text-xs font-body">
-          © {new Date().getFullYear()} ResumePro. All rights reserved.
+          © {new Date().getFullYear()} Miss Morgan. All rights reserved.
         </p>
       </div>
     </div>

@@ -15,7 +15,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-secondary/90 backdrop-blur-md border-b border-primary-foreground/10">
       <div className="container flex items-center justify-between h-16">
         <a href="#" className="font-heading text-xl font-bold text-primary-foreground">
-          Resume<span className="text-gradient-gold">Pro</span>
+          Miss <span className="text-gradient-gold">Morgan</span>
         </a>
 
         {/* Desktop */}
