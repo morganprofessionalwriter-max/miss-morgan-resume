@@ -50,10 +50,10 @@ const plans = [
 
 const PricingSection = () => {
   return (
-    <section id="pricing" className="py-20 lg:py-28 bg-muted/50">
+    <section id="pricing" className="py-24 lg:py-32 bg-background">
       <div className="container">
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <p className="text-gold font-body text-sm font-semibold tracking-[0.2em] uppercase mb-4">Pricing</p>
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <p className="text-accent font-body text-sm font-semibold tracking-[0.2em] uppercase mb-4">Pricing</p>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Invest in Your Career
           </h2>
@@ -68,8 +68,8 @@ const PricingSection = () => {
               key={plan.name}
               className={`relative rounded-2xl p-8 transition-all duration-300 ${
                 plan.popular
-                  ? "bg-secondary text-secondary-foreground shadow-elevated scale-105 border-2 border-gold"
-                  : "bg-card text-card-foreground shadow-card hover:shadow-elevated"
+                  ? "bg-secondary text-secondary-foreground shadow-elevated scale-105 border-2 border-accent"
+                  : "bg-card text-card-foreground shadow-card hover:shadow-elevated border border-border/50"
               }`}
             >
               {plan.popular && (
@@ -93,7 +93,7 @@ const PricingSection = () => {
               <ul className="space-y-3 mb-8">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3 text-sm font-body">
-                    <Check className={`h-4 w-4 mt-0.5 flex-shrink-0 ${plan.popular ? "text-gold" : "text-gold"}`} />
+                    <Check className="h-4 w-4 mt-0.5 flex-shrink-0 text-accent" />
                     <span className={plan.popular ? "text-secondary-foreground/90" : ""}>{feature}</span>
                   </li>
                 ))}
@@ -103,7 +103,7 @@ const PricingSection = () => {
                 className={`w-full py-6 rounded-full font-body font-semibold text-base ${
                   plan.popular
                     ? "bg-gradient-gold text-secondary hover:opacity-90"
-                    : "bg-secondary text-white hover:bg-secondary/90"
+                    : "bg-secondary text-secondary-foreground hover:bg-secondary/90"
                 }`}
                 onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               >

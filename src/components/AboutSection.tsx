@@ -1,50 +1,47 @@
 import { Award, BookOpen, Briefcase, Heart } from "lucide-react";
 
 const highlights = [
-  { icon: Briefcase, label: "12+ Years Experience" },
-  { icon: BookOpen, label: "Certified Resume Writer (CPRW)" },
-  { icon: Award, label: "2,500+ Resumes Delivered" },
-  { icon: Heart, label: "98% Client Satisfaction" },
+  { icon: Briefcase, label: "12+ Years in Education Leadership" },
+  { icon: Award, label: "State-Certified Director" },
+  { icon: BookOpen, label: "Curriculum Development Expert" },
+  { icon: Heart, label: "Passionate Child Advocate" },
 ];
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-20 lg:py-28 bg-muted/50">
+    <section id="about" className="py-24 lg:py-32 bg-background">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-gold font-body text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+          <p className="text-accent font-body text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             About Me
           </p>
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-5">
-            Hi, I'm <span className="text-gradient-gold">Miss Morgan</span>
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            Hi, I'm Miss Morgan
           </h2>
-          <div className="space-y-4 text-muted-foreground font-body text-base leading-relaxed mb-8">
+
+          <div className="space-y-4 text-muted-foreground font-body text-lg leading-relaxed mb-12">
             <p>
-              I'm a Certified Professional Resume Writer with over 12 years of experience
-              helping professionals at every level — from recent graduates to C-suite executives —
-              land the roles they deserve.
+              I'm a dedicated Early Childhood Education Director with over 12 years of hands-on experience 
+              shaping programs that make a lasting impact on children's lives and families' well-being.
             </p>
             <p>
-              My approach is simple: I listen to your story, identify what makes you unique, and
-              craft a compelling narrative that resonates with hiring managers and passes ATS
-              systems with ease. Every resume I write is a partnership, not a template.
+              My career has been driven by a single mission: to create safe, inspiring, and innovative 
+              learning environments where every child can reach their full potential.
             </p>
             <p>
-              When I'm not transforming careers, you'll find me mentoring aspiring writers,
-              speaking at career workshops, or enjoying a great cup of coffee.
+              From curriculum design to staff leadership, compliance management to community partnerships, 
+              I bring a strategic, compassionate approach to everything I do.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {highlights.map((item) => (
               <div
                 key={item.label}
-                className="flex flex-col items-center gap-2 bg-card rounded-xl px-4 py-4 shadow-sm"
+                className="bg-card rounded-xl p-5 shadow-card border border-border/50 hover:border-accent/30 transition-colors"
               >
-                <item.icon className="h-5 w-5 text-gold" />
-                <span className="text-sm font-body font-medium text-foreground text-center">
-                  {item.label}
-                </span>
+                <item.icon className="h-6 w-6 text-accent mx-auto mb-3" />
+                <p className="text-sm font-body font-medium text-foreground">{item.label}</p>
               </div>
             ))}
           </div>

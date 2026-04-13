@@ -62,10 +62,10 @@ const PortfolioSection = () => {
     : portfolioItems.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="portfolio" className="py-20 lg:py-28 bg-background">
+    <section id="portfolio" className="py-24 lg:py-32 bg-muted/30">
       <div className="container">
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <p className="text-gold font-body text-sm font-semibold tracking-[0.2em] uppercase mb-4">Portfolio</p>
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <p className="text-accent font-body text-sm font-semibold tracking-[0.2em] uppercase mb-4">Portfolio</p>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Real Results, Real Careers
           </h2>
@@ -74,16 +74,15 @@ const PortfolioSection = () => {
           </p>
         </div>
 
-        {/* Category filter */}
         <div className="flex flex-wrap justify-center gap-2 mb-12">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-full text-sm font-body font-medium transition-all ${
+              className={`px-5 py-2.5 rounded-full text-sm font-body font-medium transition-all ${
                 activeCategory === cat
                   ? "bg-gradient-gold text-secondary shadow-soft"
-                  : "bg-muted text-muted-foreground hover:text-foreground"
+                  : "bg-card text-muted-foreground hover:text-foreground border border-border/50"
               }`}
             >
               {cat}
@@ -91,12 +90,11 @@ const PortfolioSection = () => {
           ))}
         </div>
 
-        {/* Portfolio grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.map((item, i) => (
             <div
               key={item.title}
-              className="group bg-card rounded-lg overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 animate-scale-in"
+              className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 animate-scale-in border border-border/50"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
               <div className="relative overflow-hidden aspect-[3/4]">
@@ -109,13 +107,13 @@ const PortfolioSection = () => {
                   height={1024}
                 />
                 <div className="absolute inset-0 bg-secondary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-gold flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center">
                     <ExternalLink className="h-5 w-5 text-secondary" />
                   </div>
                 </div>
               </div>
-              <div className="p-5">
-                <span className="text-xs font-body font-medium text-gold tracking-wider uppercase">
+              <div className="p-6">
+                <span className="text-xs font-body font-medium text-accent tracking-wider uppercase">
                   {item.industry}
                 </span>
                 <h3 className="font-heading text-lg font-bold text-foreground mt-1 mb-2">{item.title}</h3>

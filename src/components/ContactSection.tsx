@@ -16,35 +16,35 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-28 bg-gradient-hero">
+    <section id="contact" className="py-24 lg:py-32 bg-background">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           <div>
-            <p className="text-gold font-body text-sm font-semibold tracking-[0.2em] uppercase mb-4">Get In Touch</p>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
-              Ready to Transform Your Career?
+            <p className="text-accent font-body text-sm font-semibold tracking-[0.2em] uppercase mb-4">Get In Touch</p>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Let's Connect
             </h2>
-            <p className="text-primary-foreground/70 font-body text-lg mb-8 leading-relaxed">
-              Let's discuss how a professionally written resume can help you land your dream role. Free 15-minute consultation included.
+            <p className="text-muted-foreground font-body text-lg mb-8 leading-relaxed">
+              Whether you're looking for a dedicated director or want to discuss educational leadership opportunities, I'd love to hear from you.
             </p>
 
             <div className="space-y-4">
               {[
                 { icon: Mail, text: "morgan.professionalwriter@gmail.com" },
                 { icon: Phone, text: "+1 (672) 702-3922" },
-                { icon: MapPin, text: "Available worldwide — remote consultations" },
+                { icon: MapPin, text: "Available nationwide — open to relocation" },
               ].map((item) => (
                 <div key={item.text} className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
-                    <item.icon className="h-5 w-5 text-gold" />
+                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
+                    <item.icon className="h-5 w-5 text-accent" />
                   </div>
-                  <span className="text-primary-foreground/80 font-body text-sm">{item.text}</span>
+                  <span className="text-foreground/70 font-body text-sm">{item.text}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="bg-card rounded-2xl p-8 shadow-elevated space-y-4">
+          <form onSubmit={handleSubmit} className="bg-card rounded-2xl p-8 shadow-card border border-border/50 space-y-4">
             <Input
               placeholder="Your Name"
               value={formData.name}
@@ -68,7 +68,7 @@ const ContactSection = () => {
               className="rounded-lg py-5 font-body"
             />
             <Textarea
-              placeholder="Tell me about your career goals..."
+              placeholder="Tell me about the opportunity..."
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               required
