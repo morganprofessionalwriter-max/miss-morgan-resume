@@ -56,21 +56,20 @@ const portfolioItems = [
 
 const PortfolioSection = () => {
   const [activeCategory, setActiveCategory] = useState("All");
-
   const filteredItems = activeCategory === "All"
     ? portfolioItems
     : portfolioItems.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="portfolio" className="py-24 lg:py-32 bg-muted/30">
+    <section id="portfolio" className="py-24 lg:py-32 bg-muted/20">
       <div className="container">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-accent font-body text-sm font-semibold tracking-[0.2em] uppercase mb-4">Portfolio</p>
+          <p className="text-primary font-body text-sm font-semibold tracking-[0.2em] uppercase mb-4">Portfolio</p>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Real Results, Real Careers
+            Real Results, <span className="text-gradient-cyan">Real Careers</span>
           </h2>
           <p className="text-muted-foreground font-body text-lg">
-            Browse samples from my portfolio of 2,500+ professionally written resumes across industries.
+            Browse samples from our portfolio of 5,000+ professionally written resumes.
           </p>
         </div>
 
@@ -81,8 +80,8 @@ const PortfolioSection = () => {
               onClick={() => setActiveCategory(cat)}
               className={`px-5 py-2.5 rounded-full text-sm font-body font-medium transition-all ${
                 activeCategory === cat
-                  ? "bg-gradient-gold text-secondary shadow-soft"
-                  : "bg-card text-muted-foreground hover:text-foreground border border-border/50"
+                  ? "bg-primary text-primary-foreground glow-cyan"
+                  : "glass-card text-muted-foreground hover:text-foreground"
               }`}
             >
               {cat}
@@ -94,7 +93,7 @@ const PortfolioSection = () => {
           {filteredItems.map((item, i) => (
             <div
               key={item.title}
-              className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 animate-scale-in border border-border/50"
+              className="group glass-card glass-card-hover rounded-2xl overflow-hidden transition-all duration-500 animate-scale-in"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
               <div className="relative overflow-hidden aspect-[3/4]">
@@ -106,14 +105,14 @@ const PortfolioSection = () => {
                   width={800}
                   height={1024}
                 />
-                <div className="absolute inset-0 bg-secondary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center">
-                    <ExternalLink className="h-5 w-5 text-secondary" />
+                <div className="absolute inset-0 bg-background/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+                    <ExternalLink className="h-5 w-5 text-primary-foreground" />
                   </div>
                 </div>
               </div>
               <div className="p-6">
-                <span className="text-xs font-body font-medium text-accent tracking-wider uppercase">
+                <span className="text-xs font-body font-medium text-primary tracking-wider uppercase">
                   {item.industry}
                 </span>
                 <h3 className="font-heading text-lg font-bold text-foreground mt-1 mb-2">{item.title}</h3>

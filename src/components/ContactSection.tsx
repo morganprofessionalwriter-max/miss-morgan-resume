@@ -11,7 +11,7 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ title: "Message sent!", description: "I'll get back to you within 24 hours." });
+    toast({ title: "Consultation booked!", description: "We'll get back to you within 24 hours." });
     setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
@@ -20,37 +20,43 @@ const ContactSection = () => {
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           <div>
-            <p className="text-accent font-body text-sm font-semibold tracking-[0.2em] uppercase mb-4">Get In Touch</p>
+            <p className="text-primary font-body text-sm font-semibold tracking-[0.2em] uppercase mb-4">Contact</p>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Let's Connect
+              Book Your <span className="text-gradient-cyan">Consultation</span>
             </h2>
             <p className="text-muted-foreground font-body text-lg mb-8 leading-relaxed">
-              Whether you're looking for a dedicated director or want to discuss educational leadership opportunities, I'd love to hear from you.
+              Ready to transform your career? Let's start with a free consultation to discuss your goals and the best strategy for your resume.
             </p>
 
             <div className="space-y-4">
               {[
-                { icon: Mail, text: "morgan.professionalwriter@gmail.com" },
-                { icon: Phone, text: "+1 (672) 702-3922" },
-                { icon: MapPin, text: "Available nationwide — open to relocation" },
+                { icon: Mail, text: "morgan.professionalwriter@gmail.com", href: "mailto:morgan.professionalwriter@gmail.com" },
+                { icon: Phone, text: "+1 (672) 702-3922", href: "tel:+16727023922" },
+                { icon: MapPin, text: "Available worldwide — remote consultations", href: "" },
               ].map((item) => (
                 <div key={item.text} className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
-                    <item.icon className="h-5 w-5 text-accent" />
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <item.icon className="h-5 w-5 text-primary" />
                   </div>
-                  <span className="text-foreground/70 font-body text-sm">{item.text}</span>
+                  {item.href ? (
+                    <a href={item.href} className="text-foreground/70 hover:text-primary font-body text-sm transition-colors">
+                      {item.text}
+                    </a>
+                  ) : (
+                    <span className="text-foreground/70 font-body text-sm">{item.text}</span>
+                  )}
                 </div>
               ))}
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="bg-card rounded-2xl p-8 shadow-card border border-border/50 space-y-4">
+          <form onSubmit={handleSubmit} className="glass-card rounded-2xl p-8 space-y-4">
             <Input
               placeholder="Your Name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               required
-              className="rounded-lg py-5 font-body"
+              className="rounded-lg py-5 font-body bg-background/50 border-border/50 text-foreground placeholder:text-muted-foreground/50"
             />
             <Input
               type="email"
@@ -58,25 +64,25 @@ const ContactSection = () => {
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               required
-              className="rounded-lg py-5 font-body"
+              className="rounded-lg py-5 font-body bg-background/50 border-border/50 text-foreground placeholder:text-muted-foreground/50"
             />
             <Input
               type="tel"
               placeholder="Phone (optional)"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="rounded-lg py-5 font-body"
+              className="rounded-lg py-5 font-body bg-background/50 border-border/50 text-foreground placeholder:text-muted-foreground/50"
             />
             <Textarea
-              placeholder="Tell me about the opportunity..."
+              placeholder="Tell us about your career goals..."
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               required
               rows={4}
-              className="rounded-lg font-body resize-none"
+              className="rounded-lg font-body resize-none bg-background/50 border-border/50 text-foreground placeholder:text-muted-foreground/50"
             />
-            <Button className="w-full bg-gradient-gold text-secondary rounded-full py-6 font-body font-semibold text-base hover:opacity-90">
-              Send Message <Send className="ml-2 h-4 w-4" />
+            <Button className="w-full bg-primary text-primary-foreground rounded-full py-6 font-body font-semibold text-base hover:opacity-90 glow-cyan">
+              Book Free Consultation <Send className="ml-2 h-4 w-4" />
             </Button>
           </form>
         </div>
