@@ -1,11 +1,13 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import TrustedByScroller from "@/components/TrustedByScroller";
 import AboutSection from "@/components/AboutSection";
-import KeyAchievements from "@/components/KeyAchievements";
+import PricingSection from "@/components/PricingSection";
 import PortfolioSection from "@/components/PortfolioSection";
+import ProcessSection from "@/components/ProcessSection";
+import KeyAchievements from "@/components/KeyAchievements";
 import DirectorVision from "@/components/DirectorVision";
 import CredentialsRibbon from "@/components/CredentialsRibbon";
-import PricingSection from "@/components/PricingSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -14,12 +16,14 @@ const Index = () => (
   <>
     <Navbar />
     <HeroSection />
+    <TrustedByScroller />
+    <PricingSection />
     <AboutSection />
-    <KeyAchievements />
     <PortfolioSection />
+    <ProcessSection />
+    <KeyAchievements />
     <DirectorVision />
     <CredentialsRibbon />
-    <PricingSection />
     <TestimonialsSection />
     <ContactSection />
     <Footer />

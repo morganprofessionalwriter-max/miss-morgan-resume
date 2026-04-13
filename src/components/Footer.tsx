@@ -1,57 +1,60 @@
 import { useState } from "react";
-import { Linkedin, Mail, Send } from "lucide-react";
+import { MessageCircle, Mail, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
 const Footer = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [email, setEmail] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleNewsletter = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ title: "Inquiry sent!", description: "Thank you for reaching out. I'll respond within 24 hours." });
-    setFormData({ name: "", email: "", message: "" });
+    toast({ title: "Subscribed!", description: "You'll receive our best career tips weekly." });
+    setEmail("");
   };
 
   return (
-    <footer className="bg-gradient-hero border-t border-primary-foreground/10">
+    <footer className="bg-muted/30 border-t border-border/30">
       <div className="container py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-5xl mx-auto">
-          {/* Left: Brand + LinkedIn */}
-          <div>
-            <a href="#" className="font-heading text-2xl font-bold text-primary-foreground tracking-tight">
-              Miss <span className="text-gradient-gold">Morgan</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Brand */}
+          <div className="lg:col-span-2">
+            <a href="#" className="font-heading text-2xl font-bold text-foreground tracking-tight">
+              Miss <span className="text-gradient-cyan">Morgan</span>
             </a>
-            <p className="text-primary-foreground/50 font-body text-sm mt-4 leading-relaxed max-w-sm">
-              Dedicated Early Childhood Education Director empowering the next generation 
-              through expert leadership, innovation, and a commitment to excellence.
+            <p className="text-muted-foreground font-body text-sm mt-4 leading-relaxed max-w-sm">
+              Professional resume writing agency helping leaders, innovators, and rising talent
+              land their dream roles. 5,000+ careers transformed.
             </p>
 
-            <div className="flex gap-4 mt-8">
+            <div className="flex gap-3 mt-6">
               <a
-                href="https://linkedin.com"
+                href="https://wa.me/16727023922"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-primary-foreground/5 border border-primary-foreground/10 text-primary-foreground/70 hover:text-accent hover:border-accent/30 rounded-full px-5 py-2.5 text-sm font-body font-medium transition-all"
+                className="inline-flex items-center gap-2 glass-card glass-card-hover rounded-full px-5 py-2.5 text-sm font-body font-medium text-foreground/70 hover:text-primary transition-all"
               >
-                <Linkedin className="h-4 w-4" /> Connect on LinkedIn
+                <MessageCircle className="h-4 w-4" /> Connect on WhatsApp
               </a>
               <a
                 href="mailto:morgan.professionalwriter@gmail.com"
-                className="inline-flex items-center gap-2 bg-primary-foreground/5 border border-primary-foreground/10 text-primary-foreground/70 hover:text-accent hover:border-accent/30 rounded-full px-5 py-2.5 text-sm font-body font-medium transition-all"
+                className="inline-flex items-center gap-2 glass-card glass-card-hover rounded-full px-5 py-2.5 text-sm font-body font-medium text-foreground/70 hover:text-primary transition-all"
               >
                 <Mail className="h-4 w-4" /> Email Me
               </a>
             </div>
+          </div>
 
-            <div className="flex gap-6 mt-10">
-              {["About", "Portfolio", "Pricing", "Contact"].map((link) => (
+          {/* Quick Links */}
+          <div>
+            <h4 className="font-heading font-bold text-foreground text-sm mb-4">Quick Links</h4>
+            <div className="flex flex-col gap-3">
+              {["Services", "Portfolio", "Process", "Results", "Testimonials", "Contact"].map((link) => (
                 <a
                   key={link}
                   href={`#${link.toLowerCase()}`}
-                  className="text-primary-foreground/40 hover:text-accent text-sm font-body transition-colors"
+                  className="text-muted-foreground hover:text-primary text-sm font-body transition-colors"
                 >
                   {link}
                 </a>
@@ -59,50 +62,33 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Right: Inquiry Form */}
+          {/* Newsletter */}
           <div>
-            <h3 className="font-heading text-lg font-bold text-primary-foreground mb-2">
-              Inquire for Leadership Opportunities
-            </h3>
-            <p className="text-primary-foreground/50 font-body text-sm mb-6">
-              Interested in discussing a director or leadership position? Send me a note.
+            <h4 className="font-heading font-bold text-foreground text-sm mb-4">Career Tips</h4>
+            <p className="text-muted-foreground font-body text-sm mb-4">
+              Get weekly insider tips on resume writing, interviews, and career strategy.
             </p>
-            <form onSubmit={handleSubmit} className="space-y-3">
-              <Input
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                required
-                className="rounded-lg py-5 font-body bg-primary-foreground/5 border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30"
-              />
+            <form onSubmit={handleNewsletter} className="flex gap-2">
               <Input
                 type="email"
-                placeholder="Email Address"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                placeholder="Your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
-                className="rounded-lg py-5 font-body bg-primary-foreground/5 border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30"
+                className="rounded-full text-sm font-body bg-background/50 border-border/50 text-foreground placeholder:text-muted-foreground/50"
               />
-              <Textarea
-                placeholder="Your message..."
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                required
-                rows={3}
-                className="rounded-lg font-body resize-none bg-primary-foreground/5 border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30"
-              />
-              <Button className="w-full bg-gradient-gold text-secondary rounded-full py-5 font-body font-semibold text-sm hover:opacity-90">
-                Send Inquiry <Send className="ml-2 h-4 w-4" />
+              <Button type="submit" size="icon" className="rounded-full bg-primary text-primary-foreground hover:opacity-90 flex-shrink-0">
+                <Send className="h-4 w-4" />
               </Button>
             </form>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-primary-foreground/5">
+      <div className="border-t border-border/20">
         <div className="container py-6">
-          <p className="text-center text-primary-foreground/30 text-xs font-body">
-            © {new Date().getFullYear()} Miss Morgan. All rights reserved.
+          <p className="text-center text-muted-foreground/50 text-xs font-body">
+            © {new Date().getFullYear()} Miss Morgan Resume Agency. All rights reserved.
           </p>
         </div>
       </div>

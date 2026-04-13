@@ -1,36 +1,34 @@
-import { Award, BookOpen, Briefcase, Heart } from "lucide-react";
+import { Award, Target, Zap, Shield } from "lucide-react";
 
 const highlights = [
-  { icon: Briefcase, label: "12+ Years in Education Leadership" },
-  { icon: Award, label: "State-Certified Director" },
-  { icon: BookOpen, label: "Curriculum Development Expert" },
-  { icon: Heart, label: "Passionate Child Advocate" },
+  { icon: Target, label: "ATS Optimization Expert" },
+  { icon: Award, label: "Certified Resume Writer" },
+  { icon: Zap, label: "48-Hour Turnaround" },
+  { icon: Shield, label: "Satisfaction Guaranteed" },
 ];
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-24 lg:py-32 bg-background">
+    <section id="about" className="py-24 lg:py-32 bg-muted/20">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-accent font-body text-sm font-semibold tracking-[0.2em] uppercase mb-4">
-            About Me
+          <p className="text-primary font-body text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+            Why Miss Morgan
           </p>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Hi, I'm Miss Morgan
+            More Than a Resume — <span className="text-gradient-cyan">A Strategy</span>
           </h2>
 
           <div className="space-y-4 text-muted-foreground font-body text-lg leading-relaxed mb-12">
             <p>
-              I'm a dedicated Early Childhood Education Director with over 12 years of hands-on experience 
-              shaping programs that make a lasting impact on children's lives and families' well-being.
+              We don't just write resumes — we engineer career documents that open doors. 
+              With 15+ years of experience and deep knowledge of hiring algorithms, we position 
+              you as the obvious choice for your target role.
             </p>
             <p>
-              My career has been driven by a single mission: to create safe, inspiring, and innovative 
-              learning environments where every child can reach their full potential.
-            </p>
-            <p>
-              From curriculum design to staff leadership, compliance management to community partnerships, 
-              I bring a strategic, compassionate approach to everything I do.
+              Every resume is handcrafted by our team, not AI-generated. We combine industry 
+              expertise with proven ATS strategies to ensure your application stands out 
+              in both automated systems and human review.
             </p>
           </div>
 
@@ -38,9 +36,9 @@ const AboutSection = () => {
             {highlights.map((item) => (
               <div
                 key={item.label}
-                className="bg-card rounded-xl p-5 shadow-card border border-border/50 hover:border-accent/30 transition-colors"
+                className="glass-card glass-card-hover rounded-xl p-5 transition-all duration-300"
               >
-                <item.icon className="h-6 w-6 text-accent mx-auto mb-3" />
+                <item.icon className="h-6 w-6 text-primary mx-auto mb-3" />
                 <p className="text-sm font-body font-medium text-foreground">{item.label}</p>
               </div>
             ))}
