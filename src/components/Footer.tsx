@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MessageCircle, Mail, Send } from "lucide-react";
+import { MessageCircle, Mail, Send, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -42,6 +42,14 @@ const Footer = () => {
                 className="inline-flex items-center gap-2 glass-card glass-card-hover rounded-full px-5 py-2.5 text-sm font-body font-medium text-foreground/70 hover:text-primary transition-all"
               >
                 <Mail className="h-4 w-4" /> Email Me
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=100089375480637"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 glass-card glass-card-hover rounded-full px-5 py-2.5 text-sm font-body font-medium text-foreground/70 hover:text-primary transition-all"
+              >
+                <Facebook className="h-4 w-4" /> Facebook
               </a>
             </div>
           </div>
