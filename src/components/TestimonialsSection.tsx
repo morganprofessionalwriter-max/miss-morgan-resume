@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Star, ChevronLeft, ChevronRight, Quote, BadgeCheck } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
-const testimonials = [
+const fallbackTestimonials = [
   {
     name: "Sarah Mitchell",
     role: "VP of Marketing → CMO at Fortune 500",
@@ -30,6 +31,29 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   const [current, setCurrent] = useState(0);
+  const [testimonials, setTestimonials] = useState(fallbackTestimonials);
+
+  useEffect(() => {
+    const loadApproved = async () => {
+      const { data } = await supabase
+        .from("reviews")
+        .select("*")
+        .eq("status", "approved")
+        .order("created_at", { ascending: false });
+      if (data && data.length > 0) {
+        setTestimonials(
+          data.map((r) => ({
+            name: r.author_name,
+            role: r.author_role || "",
+            quote: r.quote,
+            rating: r.rating,
+          }))
+        );
+      }
+    };
+    loadApproved();
+  }, []);
+
   const prev = () => setCurrent((c) => (c === 0 ? testimonials.length - 1 : c - 1));
   const next = () => setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1));
   const t = testimonials[current];
