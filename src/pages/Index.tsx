@@ -12,6 +12,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import WriteReviewSection from "@/components/WriteReviewSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import FloatingChat from "@/components/FloatingChat";
 
 const Index = () => (
   <>
@@ -29,6 +30,7 @@ const Index = () => (
     <WriteReviewSection />
     <ContactSection />
     <Footer />
+    <FloatingChat />
   </>
 );
 
