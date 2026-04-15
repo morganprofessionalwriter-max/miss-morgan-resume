@@ -2,17 +2,30 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Facebook } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSending(true);
+
+    // Build mailto link to notify the admin
+    const subject = encodeURIComponent(`New Consultation Request from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || "N/A"}\n\nMessage:\n${formData.message}`
+    );
+    
+    // Open mailto to send notification
+    window.open(`mailto:morgan.professionalwriter@gmail.com?subject=${subject}&body=${body}`, "_blank");
+
     toast({ title: "Consultation booked!", description: "We'll get back to you within 24 hours." });
     setFormData({ name: "", email: "", phone: "", message: "" });
+    setSending(false);
   };
 
   return (
@@ -32,6 +45,7 @@ const ContactSection = () => {
               {[
                 { icon: Mail, text: "morgan.professionalwriter@gmail.com", href: "mailto:morgan.professionalwriter@gmail.com" },
                 { icon: Phone, text: "+1 (672) 702-3922", href: "tel:+16727023922" },
+                { icon: Facebook, text: "Connect on Facebook", href: "https://www.facebook.com/profile.php?id=100089375480637" },
                 { icon: MapPin, text: "Available worldwide — remote consultations", href: "" },
               ].map((item) => (
                 <div key={item.text} className="flex items-center gap-3">
@@ -39,7 +53,7 @@ const ContactSection = () => {
                     <item.icon className="h-5 w-5 text-primary" />
                   </div>
                   {item.href ? (
-                    <a href={item.href} className="text-foreground/70 hover:text-primary font-body text-sm transition-colors">
+                    <a href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined} className="text-foreground/70 hover:text-primary font-body text-sm transition-colors">
                       {item.text}
                     </a>
                   ) : (
@@ -81,8 +95,8 @@ const ContactSection = () => {
               rows={4}
               className="rounded-lg font-body resize-none bg-background/50 border-border/50 text-foreground placeholder:text-muted-foreground/50"
             />
-            <Button className="w-full bg-primary text-primary-foreground rounded-full py-6 font-body font-semibold text-base hover:opacity-90 glow-cyan">
-              Book Free Consultation <Send className="ml-2 h-4 w-4" />
+            <Button disabled={sending} className="w-full bg-primary text-primary-foreground rounded-full py-6 font-body font-semibold text-base hover:opacity-90 glow-cyan">
+              {sending ? "Sending..." : "Book Free Consultation"} <Send className="ml-2 h-4 w-4" />
             </Button>
           </form>
         </div>
