@@ -201,7 +201,7 @@ const AdminDashboard = () => {
               onClick={() => setFilter(f)}
               className="capitalize"
             >
-              {f} {f !== "all" && `(${reviews.filter((r) => f === "all" || r.status === f).length})`}
+              {f} {f !== "all" && `(${reviews.filter((r) => r.status === f).length})`}
             </Button>
           ))}
         </div>
