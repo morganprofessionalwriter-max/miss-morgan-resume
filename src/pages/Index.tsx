@@ -9,6 +9,7 @@ import KeyAchievements from "@/components/KeyAchievements";
 import DirectorVision from "@/components/DirectorVision";
 import CredentialsRibbon from "@/components/CredentialsRibbon";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import WriteReviewSection from "@/components/WriteReviewSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -25,6 +26,7 @@ const Index = () => (
     <DirectorVision />
     <CredentialsRibbon />
     <TestimonialsSection />
+    <WriteReviewSection />
     <ContactSection />
     <Footer />
   </>
