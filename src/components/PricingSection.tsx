@@ -1,81 +1,107 @@
-import { Briefcase, RefreshCw, GraduationCap, ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const services = [
+const tiers = [
   {
-    icon: Briefcase,
-    title: "Executive Branding",
-    subtitle: "For C-Suite & Directors",
-    price: "$499.99",
-    description: "Comprehensive executive branding with personal narrative, board-ready resume, and LinkedIn optimization for senior leaders.",
-    features: ["Executive biography", "Personal branding strategy", "Unlimited revisions", "Interview coaching session"],
+    name: "Essentials",
+    tagline: "Stand out with a recruiter-ready resume.",
+    price: "$249",
+    cadence: "one-time",
+    features: [
+      "ATS-optimized resume rewrite",
+      "Industry-tailored language",
+      "2 rounds of revisions",
+      "48-hour delivery",
+    ],
+    cta: "Get Started",
+    featured: false,
   },
   {
-    icon: RefreshCw,
-    title: "Career Pivot",
-    subtitle: "For Industry Changers",
-    price: "$199.99",
-    description: "Strategic repositioning of your experience to unlock new industries. We translate your skills into the language of your target field.",
-    features: ["Transferable skills analysis", "Cover letter included", "LinkedIn optimization", "2 revision rounds"],
+    name: "Career Accelerator",
+    tagline: "The complete personal-brand package.",
+    price: "$549",
+    cadence: "one-time",
+    features: [
+      "Everything in Essentials",
+      "Custom cover letter",
+      "LinkedIn profile optimization",
+      "30-min strategy call",
+    ],
+    cta: "Most Popular",
+    featured: true,
   },
   {
-    icon: GraduationCap,
-    title: "The Professional Start",
-    subtitle: "For Rising Talent",
-    price: "$99.99",
-    description: "ATS-optimized resume crafted to help graduates and early-career professionals stand out and land their first big role.",
-    features: ["ATS-optimized formatting", "Keyword optimization", "1 revision round", "PDF & DOCX formats"],
+    name: "Reverse Recruiting",
+    tagline: "We run your job search for you.",
+    price: "$999",
+    cadence: "/mo",
+    features: [
+      "We apply to roles for you",
+      "Recruiter & hiring-manager outreach",
+      "Weekly pipeline tracking",
+      "Interview prep included",
+    ],
+    cta: "Book a Call",
+    featured: false,
   },
 ];
 
 const PricingSection = () => {
   return (
-    <section id="services" className="py-24 lg:py-32 bg-background">
+    <section id="pricing" className="py-24 lg:py-32 bg-background">
       <div className="container">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-primary font-body text-sm font-semibold tracking-[0.2em] uppercase mb-4">Our Services</p>
+          <p className="text-primary font-body text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+            — Pricing
+          </p>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Tailored to Your <span className="text-gradient-cyan">Ambition</span>
+            Simple, <span className="text-gradient-gold">transparent pricing.</span>
           </h2>
           <p className="text-muted-foreground font-body text-lg">
-            Every career is unique. Choose the tier that matches where you're headed.
+            Premium career services delivered by experienced strategists. No templates, no interns.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
-          {services.map((service) => (
+          {tiers.map((tier) => (
             <div
-              key={service.title}
-              className="group glass-card glass-card-hover rounded-2xl p-8 transition-all duration-500 relative"
+              key={tier.name}
+              className={`group glass-card glass-card-hover rounded-2xl p-8 transition-all duration-500 relative flex flex-col ${
+                tier.featured ? "ring-2 ring-primary/60 shadow-soft" : ""
+              }`}
             >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                <service.icon className="h-7 w-7 text-primary" />
+              {tier.featured && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-gold text-primary-foreground font-body text-xs font-bold tracking-wider uppercase px-4 py-1 rounded-full">
+                  Most Popular
+                </span>
+              )}
+
+              <h3 className="font-heading text-xl font-bold text-foreground mb-1">{tier.name}</h3>
+              <p className="text-muted-foreground font-body text-sm mb-6">{tier.tagline}</p>
+
+              <div className="mb-6">
+                <span className="text-4xl font-heading font-bold text-foreground">{tier.price}</span>
+                <span className="text-muted-foreground font-body text-sm ml-1">{tier.cadence}</span>
               </div>
 
-              <h3 className="font-heading text-xl font-bold text-foreground mb-1">{service.title}</h3>
-              <p className="text-primary font-body text-sm font-medium mb-4">{service.subtitle}</p>
-
-              <div className="mb-4">
-                <span className="text-3xl font-heading font-bold text-foreground">{service.price}</span>
-                <span className="text-muted-foreground font-body text-sm ml-1">/ one-time</span>
-              </div>
-
-              <p className="text-muted-foreground font-body text-sm leading-relaxed mb-6">{service.description}</p>
-
-              <ul className="space-y-2 mb-8">
-                {service.features.map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm font-body text-foreground/70">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                    {f}
+              <ul className="space-y-3 mb-8 flex-1">
+                {tier.features.map((f) => (
+                  <li key={f} className="flex items-start gap-3 text-sm font-body text-foreground/80">
+                    <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>{f}</span>
                   </li>
                 ))}
               </ul>
 
               <Button
-                className="w-full py-5 rounded-full font-body font-semibold text-sm bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-all"
+                className={`w-full py-5 rounded-full font-body font-semibold text-sm transition-all ${
+                  tier.featured
+                    ? "bg-gradient-gold text-primary-foreground hover:opacity-90"
+                    : "bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground"
+                }`}
                 onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               >
-                Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                {tier.cta} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
           ))}

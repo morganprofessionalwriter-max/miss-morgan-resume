@@ -2,7 +2,9 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TrustedByScroller from "@/components/TrustedByScroller";
 import AboutSection from "@/components/AboutSection";
+import ServicesSection from "@/components/ServicesSection";
 import PricingSection from "@/components/PricingSection";
+import FreeReviewCTA from "@/components/FreeReviewCTA";
 import PortfolioSection from "@/components/PortfolioSection";
 import ProcessSection from "@/components/ProcessSection";
 import KeyAchievements from "@/components/KeyAchievements";
@@ -19,6 +21,7 @@ const Index = () => (
     <Navbar />
     <HeroSection />
     <TrustedByScroller />
+    <ServicesSection />
     <PricingSection />
     <AboutSection />
     <PortfolioSection />
@@ -28,6 +31,7 @@ const Index = () => (
     <CredentialsRibbon />
     <TestimonialsSection />
     <WriteReviewSection />
+    <FreeReviewCTA />
     <ContactSection />
     <Footer />
     <FloatingChat />
