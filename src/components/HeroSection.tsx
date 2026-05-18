@@ -1,5 +1,6 @@
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import heroPortrait from "@/assets/hero-portrait.jpg";
 
 const HeroSection = () => {
   return (
@@ -65,48 +66,21 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right: Floating Resume Preview */}
+          {/* Right: Hero Portrait */}
           <div className="hidden lg:flex justify-center items-center">
             <div className="relative animate-float">
-              <div className="glass-card rounded-2xl p-8 w-80 animate-pulse-glow">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-                      <span className="text-primary font-heading font-bold text-lg">M</span>
-                    </div>
-                    <div>
-                      <div className="h-3 w-28 bg-foreground/30 rounded" />
-                      <div className="h-2 w-20 bg-foreground/15 rounded mt-1.5" />
-                    </div>
-                  </div>
-                  <div className="border-t border-primary/10 pt-4 space-y-3">
-                    <div className="h-2.5 w-full bg-foreground/10 rounded" />
-                    <div className="h-2.5 w-5/6 bg-foreground/10 rounded" />
-                    <div className="h-2.5 w-4/6 bg-foreground/10 rounded" />
-                  </div>
-                  <div className="border-t border-primary/10 pt-4 space-y-3">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-primary" />
-                      <div className="h-2.5 w-3/4 bg-foreground/10 rounded" />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-primary" />
-                      <div className="h-2.5 w-2/3 bg-foreground/10 rounded" />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-primary" />
-                      <div className="h-2.5 w-4/5 bg-foreground/10 rounded" />
-                    </div>
-                  </div>
-                  <div className="flex gap-2 pt-2">
-                    <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-body font-medium">ATS Optimized</span>
-                    <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-body font-medium">Executive</span>
-                  </div>
-                </div>
+              <div className="absolute -inset-6 bg-primary/20 rounded-[2rem] blur-3xl" />
+              <div className="relative glass-card rounded-[2rem] p-3 overflow-hidden animate-pulse-glow">
+                <img
+                  src={heroPortrait}
+                  alt="Professional resume writing expert"
+                  width={896}
+                  height={1088}
+                  className="rounded-[1.5rem] w-[26rem] h-auto object-cover"
+                />
               </div>
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 rounded-full bg-primary/20 blur-sm" />
-              <div className="absolute -bottom-6 -left-6 w-12 h-12 rounded-full bg-primary/10 blur-md" />
+              <div className="absolute -top-4 -right-4 w-10 h-10 rounded-full bg-primary/30 blur-sm" />
+              <div className="absolute -bottom-6 -left-6 w-14 h-14 rounded-full bg-primary/20 blur-md" />
             </div>
           </div>
         </div>
